@@ -1,6 +1,6 @@
 import "./App.scss";
 import { Switch, Route, Link } from "react-router-dom";
-import { Layout, Typograhphy, Space } from "antd";
+import { Layout, Typography, Space } from "antd";
 import Navbar from "./components/Navbar/Navbar";
 import Exchanges from "./components/Exchanges/Exchanges";
 import Homepage from "./components/Homepage/Homepage";
@@ -36,8 +36,21 @@ function App() {
             </Switch>
           </div>
         </Layout>
+        <div className="footer">
+          <Typography.Title
+            level={5}
+            style={{ color: "white", textAlign: "center" }}
+          >
+            CryptoLand <br />
+            CryptoLand corportaion (C) 2023
+          </Typography.Title>
+          <Space>
+            <Link to="/"></Link>
+            <Link to="/exchanges">Exchanges</Link>
+            <Link to="/news">News</Link>
+          </Space>
+        </div>
       </div>
-      <div className="footer"></div>
     </div>
   );
 }
