@@ -3,10 +3,19 @@ import millify from "millify";
 import React from "react";
 import { Typography, Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
+import { useGetCryptosQuery } from "../../Services/cryptoApi";
 
 const { Title } = Typography;
 
 export default function Homepage() {
+  const { data, isFecthing } = useGetCryptosQuery();
+
+  console.log(data);
+
+  if (!data) {
+    return <div>Loading.......</div>;
+  }
+
   return (
     <>
       <Title level={2} className="heading">
