@@ -10,7 +10,7 @@ import News from "../News/News";
 const { Title } = Typography;
 
 export default function Homepage() {
-  const { data, isFetching } = useGetCryptosQuery(10);
+  const { data, isFetching } = useGetCryptosQuery(100);
   const globalStats = data?.data?.stats;
 
   console.log(data);
