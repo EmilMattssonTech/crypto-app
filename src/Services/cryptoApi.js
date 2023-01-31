@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const API_KEY = import.meta.env.VITE_API_KEY;
 const API_HOST = import.meta.env.VITE_API_HOST;
+const API_NEWS_KEY = import.meta.env.VITE_API_NEWS_KEY;
 
 const cryptoApiHeaders = {
   "X-RapidAPI-Key": API_KEY,
