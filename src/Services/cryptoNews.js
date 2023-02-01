@@ -21,6 +21,7 @@ const baseUrl = "https://bing-news-search1.p.rapidapi.com";
 const createRequest = (url) => ({
   method: "GET",
   url: `${baseUrl}${url}`,
+  // url: "https://bing-news-search1.p.rapidapi.com/news",
   params: { safeSearch: "Off", textFormat: "Raw" },
   headers: cryptoNewsHeaders,
 });
