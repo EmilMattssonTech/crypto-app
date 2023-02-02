@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 export default function Cryptocurrencies({ simplified }) {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
-  const [cryptos, setCryptos] = useState();
+  const [cryptos, setCryptos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -47,16 +47,19 @@ export default function Cryptocurrencies({ simplified }) {
                 className="crypto-card"
                 key={uniqueKey}
               >
-                <Link to={`/crypto/${crypto.uuid}`}></Link>
-                <Card
-                  title={`${crypto.rank}. ${crypto.name}`}
-                  extra={<img className="crypto-image" src={crypto.iconUrl} />}
-                  hoverable
-                >
-                  <p>Price: {millify(crypto.price)}</p>
-                  <p>Market Cap: {millify(crypto.marketCap)}</p>
-                  <p>Daily Change: {millify(crypto.change)}%</p>
-                </Card>
+                <Link key={crypto.uuid} to={`/crypto/${crypto.uuid}`}>
+                  <Card
+                    title={`${crypto.rank}. ${crypto.name}`}
+                    extra={
+                      <img className="crypto-image" src={crypto.iconUrl} />
+                    }
+                    hoverable
+                  >
+                    <p>Price: {millify(crypto.price)}</p>
+                    <p>Market Cap: {millify(crypto.marketCap)}</p>
+                    <p>Daily Change: {millify(crypto.change)}%</p>
+                  </Card>
+                </Link>
               </Col>
             );
           })}

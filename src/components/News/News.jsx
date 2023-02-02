@@ -1,8 +1,9 @@
 import "./News.scss";
 import { Select, Typography, Row, Col, Avatar, Card } from "antd";
 import moment from "moment/moment";
-
+import { useState } from "react";
 import { useGetCryptoNewsQuery } from "../../Services/cryptoNews";
+import { useGetCryptosQuery } from "../../Services/cryptoApi";
 
 const { Text, Title } = Typography;
 const { Option } = Select;
@@ -13,12 +14,14 @@ const demoImage =
 import React from "react";
 
 export default function News({ simplified }) {
+  const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
   const { data: cryptoNews } = useGetCryptoNewsQuery({
-    newsCategory: "Cryptocurrnecy",
+    newsCategory,
     count: simplified ? 6 : 12,
   });
+  const { data } = useGetCryptosQuery(100);
 
-  if (!cryptoNews?.value) return "Loading...";
+  if (!cryptoNews?.value) return "loading...";
 
   return (
     <Row gutter={[24, 24]}>
@@ -51,7 +54,7 @@ export default function News({ simplified }) {
                 </Title>
                 <img
                   src={news?.image?.thumbnail?.contentUrl || demoImage}
-                  alt="news"
+                  alt=""
                 />
               </div>
               <p>
