@@ -16,15 +16,23 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 
-import { useGetCryptoDetailsQuery } from "../../Services/cryptoApi";
+import {
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} from "../../Services/cryptoApi";
+import LineChart from "../LineChart/LineChart";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
 
 export default function CryptoDetails() {
   const { coinId } = useParams();
-  const [timePeriod, setSimePeriod] = useState("7d");
+  const [timePeriod, setTimePeriod] = useState("7d");
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
+  const { data: coinHistory } = useGetCryptoDetailsQuery({
+    coinId,
+    timePeriod,
+  });
   const cryptoDetails = data?.data?.coin;
 
   console.log(data);
@@ -112,7 +120,7 @@ export default function CryptoDetails() {
         defaultValue="7d"
         className="select-timeperiod"
         placeholder="Select Timeperiod"
-        onChange={(value) => setTimeperiod(value)}
+        onChange={(value) => setTimePeriod(value)}
       >
         {time.map((date) => (
           <Option key={date}>{date}</Option>

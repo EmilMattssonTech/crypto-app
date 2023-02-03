@@ -1,6 +1,10 @@
 import React from "react";
-import "./Loader.scss";
+import { Spin } from "antd";
 
-export default function Loader() {
-  return <div>Loader</div>;
-}
+const Loader = () => (
+  <div className="loader">
+    <Spin />
+  </div>
+);
+
+export default Loader;
