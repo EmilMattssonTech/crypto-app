@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Switch, Route, Link } from "react-router-dom";
+import { Route, Link, Routes } from "react-router-dom";
 import { Layout, Typography, Space } from "antd";
 import Navbar from "./components/Navbar/Navbar";
 import Exchanges from "./components/Exchanges/Exchanges";
@@ -17,23 +17,27 @@ function App() {
       <div className="main">
         <Layout>
           <div className="routes">
-            <Switch>
-              <Route exact path="/">
-                <Homepage />
+            <Routes>
+              <Route exact path="/" element={<Homepage />}>
+                {/* <Homepage /> */}
               </Route>
-              <Route exact path="/exchanges">
-                <Exchanges />
+              <Route exact path="/exchanges" element={<Exchanges />}>
+                {/* <Exchanges /> */}
               </Route>
-              <Route exact path="/cryptocurrencies">
-                <Cryptocurrencies />
+              <Route
+                exact
+                path="/cryptocurrencies"
+                element={<Cryptocurrencies />}
+              >
+                {/* <Cryptocurrencies /> */}
               </Route>
-              <Route exact path="/crypto/:coinId">
-                <CryptoDetails />
+              <Route exact path="/crypto/:coinId" element={<CryptoDetails />}>
+                {/* <CryptoDetails /> */}
               </Route>
-              <Route exact path="/news">
-                <News />
+              <Route exact path="/news" element={<News />}>
+                {/* <News /> */}
               </Route>
-            </Switch>
+            </Routes>
           </div>
         </Layout>
         <div className="footer">

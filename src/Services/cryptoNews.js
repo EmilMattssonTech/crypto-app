@@ -13,10 +13,12 @@ try {
 const cryptoNewsHeaders = {
   "X-BingApis-SDK": "true",
   "X-RapidAPI-Key": API_NEWS_KEY,
-  "X-RapidAPI-Host": API_NEWS_HOST,
+  // "X-RapidAPI-Host": API_NEWS_HOST,
+  "X-RapidAPI-Host": "crypto-news-live3.p.rapidapi.com",
 };
 
-const baseUrl = "https://bing-news-search1.p.rapidapi.com";
+// const baseUrl = "https://bing-news-search1.p.rapidapi.com";
+const baseUrl = "https://crypto-news-live3.p.rapidapi.com";
 
 const createRequest = (url) => ({
   method: "GET",
