@@ -18,25 +18,19 @@ function App() {
         <Layout>
           <div className="routes">
             <Routes>
-              <Route exact path="/" element={<Homepage />}>
-                {/* <Homepage /> */}
-              </Route>
-              <Route exact path="/exchanges" element={<Exchanges />}>
-                {/* <Exchanges /> */}
-              </Route>
+              <Route exact path="/" element={<Homepage />}></Route>
+              <Route exact path="/exchanges" element={<Exchanges />}></Route>
               <Route
                 exact
                 path="/cryptocurrencies"
                 element={<Cryptocurrencies />}
-              >
-                {/* <Cryptocurrencies /> */}
-              </Route>
-              <Route exact path="/crypto/:coinId" element={<CryptoDetails />}>
-                {/* <CryptoDetails /> */}
-              </Route>
-              <Route exact path="/news" element={<News />}>
-                {/* <News /> */}
-              </Route>
+              ></Route>
+              <Route
+                exact
+                path="/crypto/:coinId"
+                element={<CryptoDetails />}
+              ></Route>
+              <Route exact path="/news" element={<News />}></Route>
             </Routes>
           </div>
         </Layout>
@@ -45,8 +39,8 @@ function App() {
             level={5}
             style={{ color: "white", textAlign: "center" }}
           >
-            CryptoLand <br />
-            CryptoLand corportaion (C) 2023
+            2023 <br />
+            Blockchain corp all right reserved (C) 2023
           </Typography.Title>
           <Space>
             <Link to="/"></Link>
