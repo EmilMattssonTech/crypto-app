@@ -1,7 +1,7 @@
 import "./Cryptocurrencies.scss";
 import millify from "millify";
 import { Link } from "react-router-dom";
-import { Card, Row, Col } from "antd";
+import { Card, Row, Col, Input } from "antd";
 import { useGetCryptosQuery } from "../../Services/cryptoApi";
 import React, { useState, useEffect } from "react";
 import Loader from "../Loader/Loader";
@@ -27,7 +27,7 @@ export default function Cryptocurrencies({ simplified }) {
     <>
       {!simplified && (
         <div className="search-crypto">
-          <input
+          <Input
             type="text"
             placeholder="Search Crypto Currency"
             onChange={(e) => setSearchTerm(e.target.value)}
