@@ -143,8 +143,8 @@ export default function CryptoDetails() {
               as the base and quote currency, the rank, and trading volume.
             </p>
           </Col>
-          {stats.map(({ icon, title, value }) => (
-            <Col className="coin-stats">
+          {stats.map(({ icon, title, value }, index) => (
+            <Col className="coin-stats" key={index}>
               <Col className="coin-stats-name">
                 <Text>{icon}</Text>
                 <Text>{title}</Text>

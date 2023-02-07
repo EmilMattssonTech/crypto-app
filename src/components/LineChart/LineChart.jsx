@@ -9,6 +9,14 @@ export default function LineChart({ coinHistory, currentPrice, coinName }) {
   const coinPrice = [];
   const coinTimestamp = [];
 
+  console.log(coinName);
+  console.log(coinHistory);
+  console.log(currentPrice);
+
+  if (!coinHistory || !Array.isArray(coinHistory.data?.history)) {
+    return <div>No data available</div>;
+  }
+
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory?.data?.history[i].price);
   }
