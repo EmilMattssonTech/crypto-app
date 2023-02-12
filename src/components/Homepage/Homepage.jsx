@@ -15,6 +15,7 @@ export default function Homepage() {
   const globalStats = data?.data?.stats;
 
   console.log(data);
+  console.log(history);
 
   if (isFetching) return <Loader />;
 

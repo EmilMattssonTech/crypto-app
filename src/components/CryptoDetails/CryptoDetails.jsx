@@ -35,6 +35,7 @@ export default function CryptoDetails() {
     timePeriod,
   });
   const cryptoDetails = data?.data?.coin;
+  console.log(coinHistory);
 
   if (isFetching) return <Loader />;
 
